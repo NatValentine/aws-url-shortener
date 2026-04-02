@@ -25,9 +25,12 @@ Client → API Gateway → Lambda → DynamoDB
 Creates a short URL
 
 Body:
-{
+`{
   "url": "https://example.com"
-}
+}`
+
+<img width="648" height="320" alt="imagen" src="https://github.com/user-attachments/assets/a76d44a7-764c-4d89-a715-fc5220253cf0" />
+
 
 ### GET /{id}
 Redirects to the original URL
@@ -37,6 +40,9 @@ Redirects to the original URL
 - A short ID is generated for each URL
 - The mapping is stored in DynamoDB
 - When accessing the short URL, the service retrieves the original URL and redirects the user
+
+<img width="525" height="123" alt="imagen" src="https://github.com/user-attachments/assets/6f92a945-fc0e-4582-a1ce-3951b63af8df" />
+
 
 ## 📈 What I learned
 

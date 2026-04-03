@@ -13,6 +13,7 @@ Note: Technically, given the length of the API Gateway URL, this might currently
 - API Gateway (HTTP API)
 - DynamoDB (NoSQL database)
 - Node.js (ES Modules)
+- GitHub Actions (automated deployments)
 
 ## 📌 Features
 
@@ -48,6 +49,15 @@ Redirects to the original URL
 - When accessing the short URL, the service retrieves the original URL and redirects the user
 
 <img width="525" height="123" alt="imagen" src="https://github.com/user-attachments/assets/6f92a945-fc0e-4582-a1ce-3951b63af8df" />
+
+
+## 🔄 CI/CD
+
+A simple CI/CD pipeline is set up using GitHub Actions to automate frontend deployment.
+
+On each push to the main branch, the workflow syncs the frontend files with the S3 bucket using the AWS CLI.
+
+This enables continuous delivery and keeps the live application up to date with minimal manual intervention.
 
 
 ## 📈 What I learned

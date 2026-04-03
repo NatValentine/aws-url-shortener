@@ -1,4 +1,4 @@
-async function shorten() {
+window.shorten = async function () {
   const url = document.getElementById("urlInput").value;
 
   const res = await fetch(

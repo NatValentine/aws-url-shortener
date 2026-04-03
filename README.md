@@ -2,22 +2,28 @@
 
 This project is a simple serverless URL shortener built using AWS services.
 
+<img width="453" height="357" alt="imagen" src="https://github.com/user-attachments/assets/c049fbdd-3c0c-4729-b1e9-47e2b1ba5c04" />
+
+Note: Technically, given the length of the API Gateway URL, this might currently behave more like a URL *lengthener* than a shortener 😅
+
 ## 🚀 Tech Stack
 
-- AWS Lambda
-- API Gateway
-- DynamoDB
+- AWS S3 (static frontend hosting)
+- AWS Lambda (serverless compute)
+- API Gateway (HTTP API)
+- DynamoDB (NoSQL database)
 - Node.js (ES Modules)
 
 ## 📌 Features
 
 - Generate short URLs from long URLs
-- Redirect using HTTP 302 responses
-- Persistent storage using DynamoDB
+- Instant redirection using HTTP 302 responses
+- Persistent storage with DynamoDB
+- Lightweight frontend hosted on S3
 
 ## 🧠 Architecture
 
-Client → API Gateway → Lambda → DynamoDB
+Frontend (S3) → API Gateway → Lambda → DynamoDB
 
 ## 📂 Endpoints
 
@@ -46,13 +52,15 @@ Redirects to the original URL
 
 ## 📈 What I learned
 
-- Building serverless applications with AWS
-- Using AWS SDK v3
-- Working with DynamoDB
-- Handling HTTP responses in Lambda
+- Designing and deploying serverless applications in AWS
+- Using AWS SDK v3 with modern JavaScript (ES Modules)
+- Working with DynamoDB for simple key-value storage
+- Handling HTTP responses and redirects in Lambda
+- Dealing with real-world issues like CORS and service integration
 
 ## 🔥 Future improvements
 
 - URL validation
 - Custom aliases
 - Expiration for links
+- Custom domain for (actually) shorter URLs

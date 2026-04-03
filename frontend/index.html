@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <script>
+      async function shorten() {
+        const url = document.getElementById("urlInput").value;
+
+        const res = await fetch(
+          "https://ceoolgnpv7.execute-api.us-east-1.amazonaws.com/shorten",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ url }),
+          },
+        );
+
+        const data = await res.json();
+
+        const shortUrl = `https://ceoolgnpv7.execute-api.us-east-1.amazonaws.com/${data.shortUrl}`;
+        document.getElementById("result").innerHTML =
+          `Short URL: <a href="${shortUrl}" target="_blank">${shortUrl}</a>`;
+      }
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: system-ui, sans-serif;
+        background: #0f172a;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .container {
+        background: #1e293b;
+        padding: 2rem;
+        border-radius: 12px;
+        width: 400px;
+        text-align: center;
+      }
+
+      #urlInput {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 6px;
+        border: none;
+      }
+
+      button {
+        width: 100%;
+        padding: 0.5rem;
+        background: #38bdf8;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #0ea5e9;
+      }
+
+      #result {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        word-break: break-all;
+      }
+
+      a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>URL Shortener</h1>
+      <input id="urlInput" placeholder="Enter URL" />
+      <button onclick="shorten()">Shorten</button>
+
+      <p id="result"></p>
+    </div>
+  </body>
+</html>
